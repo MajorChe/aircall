@@ -9,10 +9,11 @@ function App() {
       p={5}
       shadow='md'
       borderWidth='1px'
+      rounded={'lg'}
       flex='1'
       borderRadius='md'
       height={"600px"}
-      width={"450px"}
+      width={"420px"}
       align="center"
       margin={"auto"}
       mt="20"
