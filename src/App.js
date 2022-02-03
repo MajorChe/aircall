@@ -1,6 +1,5 @@
-import { Box, Flex, Heading, HStack, Image, Text, VStack } from "@chakra-ui/react";
-import { PhoneIcon } from '@chakra-ui/icons'
-import Body from "./components/Navbar";
+import { Box} from "@chakra-ui/react";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
@@ -18,12 +17,9 @@ function App() {
       margin={"auto"}
       mt="20"
       overflowY={"scroll"}
+      bgColor="white"
     >
-      <HStack justifyContent={"center"} spacing="5">
-        <PhoneIcon/>
-        <Heading fontSize='4xl'>aircall</Heading>
-      </HStack>
-      <Text mt={4}>text</Text>
+      <Navbar/>
     </Box>
     </>
   );
