@@ -5,7 +5,8 @@ import { useState } from 'react';
 import CallItem from './CallItem';
 
 const Activity = () => {
-  const [calls,setCalls] = useState([])
+  const [calls,setCalls] = useState([]);
+
   useEffect(() => {
     axios.get("https://aircall-job.herokuapp.com/activities")
     .then((response) => {
@@ -14,10 +15,20 @@ const Activity = () => {
     })
     .catch((e) => console.log(e))
   },[])
+
+  const callItemList = calls.map((singleCall) => {
+    return (
+    <CallItem
+    key={singleCall.id}
+    from={singleCall.from}
+    time={singleCall.created_at}
+    />)
+  })
   return (
     <>
-      <Heading>Activity Feed</Heading>
-      <CallItem/>
+    {/* my is margin top and bottom*/}
+      <Heading fontSize={"2xl"} my={"20px"}>Activity Feed</Heading>
+      {callItemList}
     </>
   );
 };
