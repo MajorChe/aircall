@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Box,
   Flex,
@@ -13,7 +13,7 @@ import {
   ModalHeader,
   Tooltip,
 } from "@chakra-ui/react";
-import { CalendarIcon, InfoOutlineIcon, PhoneIcon } from "@chakra-ui/icons";
+import { CalendarIcon, InfoOutlineIcon } from "@chakra-ui/icons";
 import { HiOutlinePhoneMissedCall } from "react-icons/hi";
 import { BiPhoneCall } from "react-icons/bi";
 import { MdVoicemail } from "react-icons/md";
@@ -25,9 +25,8 @@ const CallItem = (props) => {
   const archiveFunc = () => {
     const data = {is_archived: true}
       axios.post(`https://aircall-job.herokuapp.com/activities/${props.callData.id}`,data)
-      .then(response => {
-        console.log(response)
-      })
+      .then(response => console.log(response.data.id, "archived"))
+      .catch(e => console.log(e))
   }
   
   return (
@@ -51,11 +50,10 @@ const CallItem = (props) => {
             <Text py={3}><b>From: </b>{props.callData.from}</Text>
             <Text py={3}><b>To: </b>{props.callData.to}</Text>
             </HStack>
-            <HStack spacing={"125px"}>
+            <HStack spacing={"70px"}>
             <Text py={3}><b>Via: </b>{props.callData.via}</Text>
-            <Text py={3}><b>Call Duration: </b>{props.callData.duration}</Text>
+            <Text py={3}><b>Call Duration: </b>{props.callData.duration} seconds</Text>
             </HStack>
-            {/* <Text py={3}>Via: {props.callData.via}</Text> */}
           </ModalBody>
         </ModalContent>
       </Modal>
