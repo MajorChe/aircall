@@ -1,7 +1,7 @@
 # AirCall App
 An app that lets users view, archive and unarchive all the calls requested using an API
 
-<img src="./blob/1.png" width=49% height="200px"> <img src="./blob/2.png" width=49% height="200px">
+<img src="./blob/1.png" width=49% height="600px"> <img src="./blob/2.png" width=49% height="600px">
 ## Summary
 
 The app will have two different components:
