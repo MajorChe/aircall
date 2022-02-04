@@ -1,5 +1,5 @@
 # AirCall App <a href="https://majorche-aircall-one.netlify.app/"> Live Link</a>
-An app that lets users view, archive and unarchive all the calls requested using an API
+An app that lets users view, archive and unarchive all the calls requested using an API. The app is built using React and Chakra UI
 
 <img src="./blob/1.png" width=49% height="600px"> <img src="./blob/2.png" width=49% height="600px">
 ## Summary
