@@ -1,13 +1,27 @@
 import { PhoneIcon } from "@chakra-ui/icons";
 import { Button, Divider, Heading, HStack } from "@chakra-ui/react";
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import Activity from "./Activity";
 import Archive from "./Archive";
 
 const Navbar = () => {
-  
+
+  const [calls,setCalls] = useState([]);
+  // loading state is to avoid memory leak while using useEffect for async function
+  const [loading, setLoading] = useState(false); 
   const [state,setState] = useState("activity");
+
+  useEffect(() => {
+    setLoading(true);
+    axios.get("https://aircall-job.herokuapp.com/activities")
+    .then((response) => {
+      setCalls(response.data)
+    })
+    .catch((e) => console.log(e))
+    return( () => setLoading(false))
+  },[calls])
 
   return (
     <>
@@ -20,8 +34,8 @@ const Navbar = () => {
         <Button onClick={() => setState("activity")}>Activity Feed</Button>
         <Button onClick={() => {setState("archived")}}>Archived Calls</Button>
       </HStack>
-        {state === "activity" && <Activity/>}
-        {state === "archived" && <Archive/>}
+        {state === "activity" && <Activity calls={calls}/>}
+        {state === "archived" && <Archive calls={calls}/>}
     </>
   );
 };
