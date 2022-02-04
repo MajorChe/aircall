@@ -1,11 +1,9 @@
 import { Heading } from '@chakra-ui/react';
-import axios from 'axios';
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React from 'react';
 import CallItem from './CallItem';
 
 const Activity = (props) => {
-  
+
   const callItemList = props.calls.map((singleCall) => {
     return (
     singleCall.is_archived === false && <CallItem

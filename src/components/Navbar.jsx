@@ -1,5 +1,4 @@
-import { PhoneIcon } from "@chakra-ui/icons";
-import { Button, Divider, Heading, HStack } from "@chakra-ui/react";
+import { Button, Divider, HStack } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
@@ -44,8 +43,8 @@ const Navbar = () => {
       </HStack>
       <Divider style={{height: 1, borderColor: "#000"}}/>
       <HStack justify={"center"} spacing="60px" mt={"10px"}>
-        <Button colorScheme={"blue"} onClick={() => setState("activity")}>Activity Feed</Button>
-        <Button colorScheme={"blue"} onClick={() => {setState("archived")}}>Archived Calls</Button>
+        <Button colorScheme={"green"} onClick={() => setState("activity")}>Activity Feed</Button>
+        <Button colorScheme={"green"} onClick={() => {setState("archived")}}>Archived Calls</Button>
       </HStack>
         {state === "activity" && <Activity calls={calls}/>}
         {state === "archived" && <Archive calls={calls}/>}

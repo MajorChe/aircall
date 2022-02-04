@@ -60,7 +60,7 @@ const CallItem = (props) => {
     {/* box display of data starts here  */}
       <Box textAlign={"center"} bgColor={"white"} color={"black"} my="15px">
         <Flex alignItems={"center"} justifyContent="space-between" mt={"10px"}>
-          <HStack spacing={5}>
+          <HStack spacing={2}>
             {/* call_type = missed --> color is red
               call_type = answered --> color is green
               if call_type = voicemail --> color is blue */}
@@ -74,7 +74,7 @@ const CallItem = (props) => {
             <Text>{props.callData.from}</Text>
           </HStack>
           <HStack>
-            <Text>
+            <Text fontSize={"sm"}>
               {/* using moment package to convert date */}
               <Moment format="MMM D, YYYY">{props.callData.created_at}</Moment>
             </Text>
